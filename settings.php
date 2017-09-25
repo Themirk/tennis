@@ -13,5 +13,4 @@ if ($conn->connect_error) {
     echo "Errore di connessione al database, riprovare più tardi";
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
 ?>
