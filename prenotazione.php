@@ -4,7 +4,6 @@ include ('header.php');
 <title>Prenotazione</title>
 <script type="text/javascript">
 $(document).ready(function() {
-    debugger;
   $("#bottone").click(function(){
     var cardNumber = $("#cardNumber").val();
     var cf = $("#cf").val();

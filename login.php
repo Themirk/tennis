@@ -1,18 +1,22 @@
 <?php
-include('settings.php');
-var_dump($db);
-$cardNumber = $_POST['cardNumber'];
-$cf = $_POST['cf'];
 
 
+include('Classes/ConnessioneDb.php');
 
-$sql = "SELECT * FROM users";
+$conn = new ConnessioneDb();
 
-$res = mysqli_query($conn, $sql);
+$connessione = $conn->connect();
+
+$cardNumber = mysqli_real_escape_string($connessione, $_POST['cardNumber']);
+$cf= mysqli_real_escape_string($connessione, $_POST['cf']);
+
+
+$res = $conn->selectAll($connessione);
+
 
 if(!$res)
 {
-    echo "no";
+    var_dump($res);
     die();
 }
 $righe = mysqli_num_rows($res);
@@ -20,26 +24,22 @@ if(mysqli_num_rows($res)>0)
 {
     $row = mysqli_fetch_assoc($res);
 
-		if(
-			$cardNumber == 1234 && $cf == 'admin')
-		{
-			?>
-			<script type="text/javascript">
-                //reindirizzato a back office by Mirko
-                //opterei per una pagina intermedia, ovvero login - backoffice - calendario
-			window.location.href='prenotazioneAdmin.php';
-			</script>
-			<?php
-		}
-		else{		
-?>
-			<script type="text/javascript">
-                //reindirizzato a calendario + form by Mirko
-			window.location.href='prenotazioneForm.php';
-			</script>
-			<?php
-		}
-mysqli_close($conn);
+    if($cardNumber == 1234 && $cf == 'admin')
+    {
+        ?>
+        <script type="text/javascript">
+            window.location.href='prenotazioneAdmin.php';
+        </script>
+        <?php
+    }
+    else{
+
+        ?>
+        <script type="text/javascript">
+            window.location.href='prenotazioneForm.php';
+        </script>
+        <?php
+    }
+    mysqli_close($connessione);
 }
-
-
+?>

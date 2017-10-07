@@ -32,7 +32,7 @@
                         <li class="active"><a href="index.php">Home</a></li>
                         <li><a href="regolamento.php">Regolamento</a></li>
                         <li><a href="prices.php">Tariffe</a></li>
-                        <li><a href="reservation.php">Prenotazioni</a></li>
+                        <li><a href="prenotazione.php">Prenotazioni</a></li>
                     </ul>
                 </div>
             </nav>
