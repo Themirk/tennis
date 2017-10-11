@@ -1,14 +1,11 @@
 body{
-    background-color: #5E965B;
-}
-.margin-top-zero{
-    margin-top: 0px;
+    background-image: url('../images/sei.jpg');
 }
 .right{
     text-align: right;
 }
 .margin-left{
-    margin-left:21.5em;
+    margin-left:404px;
 }
 .navbar {
     position: relative;
@@ -41,4 +38,31 @@ body{
 .fixed-size{
     width:100%;
     height: 500px;
+}
+.admin{
+    border: 3px solid red;
+    background-color: white;
+}
+.expired{
+    background-color: tomato!important;
+}
+.formInserimento{
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding: 2.5em;
+
+
+}
+.datiText{
+    font-size: 25px;
+}
+.margin-right{
+    margin-right: 4%;
+}
+.margin-less-right{
+    margin-right: 1%;
+}
+.margin-top-zero{
+    margin-top:0px;
 }

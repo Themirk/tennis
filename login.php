@@ -11,7 +11,7 @@ $cardNumber = mysqli_real_escape_string($connessione, $_POST['cardNumber']);
 $cf= mysqli_real_escape_string($connessione, $_POST['cf']);
 
 
-$res = $conn->selectAll($connessione);
+$res = $conn->selectAll($connessione,'users');
 
 
 if(!$res)

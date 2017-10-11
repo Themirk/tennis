@@ -6,6 +6,11 @@
     <script src='js/jquery.min.js'></script>
     <script src='js/moment.js'></script>
     <script src='js/fullcalendar.js'></script>
+    <style>
+        #calendar{
+            background-color: blue;
+        }
+    </style>
     <script>
         $(document).ready(function() {
 

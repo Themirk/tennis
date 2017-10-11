@@ -2,12 +2,15 @@
 
 class ConnessioneDb
 {
+
+
     public function __construct()
     {
+
         $this->hostname = "localhost";
         $this->username = "root";
         $this->password = "root";
-        $this->db = "tennis";
+        $this->db = "mysql";
     }
 
     public function connect()
@@ -21,27 +24,48 @@ class ConnessioneDb
         {
             return $conn;
         }
+
     }
-    public function selectAll($connessione)
+    public function selectAll($connessione,$table)
     {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM $table";
         $res = mysqli_query($connessione, $sql);
 
         return $res;
     }
+    /* inserire dob*/
+    public function insert($user, $connessione, $conn)
+    {
+        $sql = "INSERT INTO users (name, surname, isOpen,cardExpire,medExpire,cf)
+		VALUES ('$user->name','$user->surname','$user->isOpen',$user->cardExpire,$user->medExpire,'$user->cf')";
+        echo $sql;
 
+        if(mysqli_query($connessione, $sql))
+        {
+
+            ?>
+
+            <script> window.alert("Dati inseriti correttamente."); </script>
+
+            <?php
+
+        }
+        else
+        {
+            echo "ciao";
+            ?>
+
+            <script>window.alert("<?php $conn = null;"Error: ". $sql . "<br>" . $conn->error;?>") </script>
+
+            <?php
+        }
+
+
+
+    }
 
 
 }
 
+//
 
-
-// Create connection
-/*$conn = new mysqli($servername, $username, $password,$db);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    echo "no";
-}
-//echo "Connected successfully";
-?>*/

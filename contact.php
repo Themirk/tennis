@@ -1,13 +1,24 @@
-<!-- imports -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php
+    include ('header.php');
+    ?>
+    <title>index</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <?php include 'navbar-title.php'; ?>
+</div>
+
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="js/map_scripts.js"></script>
-
-
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post" action="email.php">
+                <form class="form-horizontal" method="post">
                     <fieldset>
                         <legend class="text-center header">Contact us</legend>
                         <div class= "form-group">
@@ -85,3 +96,7 @@
         padding: 10px;
     }
 </style>
+
+</body>
+<?php include 'footer.php';?>
+
