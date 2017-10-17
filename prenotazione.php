@@ -4,8 +4,6 @@
 <?php include('header.php'); ?>
 <title> Prenotazione</title>
 <body>
-
-
 <div class="container-fluid">
     <?php include('navbar-title.php'); ?>
     <div class="row">

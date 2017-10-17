@@ -1,6 +1,4 @@
 <?php
-
-
 include('Classes/ConnessioneDb.php');
 
 $conn = new ConnessioneDb();

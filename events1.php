@@ -2,7 +2,7 @@
 // List of events
 $json = array();
 // Query that retrieves events
-$requete = "SELECT * FROM reservations";
+$requete = "SELECT * FROM reservations1";
 // connection to the database
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=tennis', 'root', 'root');

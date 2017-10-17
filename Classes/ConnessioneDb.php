@@ -10,7 +10,7 @@ class ConnessioneDb
         $this->hostname = "localhost";
         $this->username = "root";
         $this->password = "root";
-        $this->db = "mysql";
+        $this->db = "tennis";
     }
 
     public function connect()
@@ -55,7 +55,7 @@ class ConnessioneDb
             echo "ciao";
             ?>
 
-            <script>window.alert("<?php $conn = null;"Error: ". $sql . "<br>" . $conn->error;?>") </script>
+            <script>window.alert("errore") </script>
 
             <?php
         }
