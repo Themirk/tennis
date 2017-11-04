@@ -1,5 +1,11 @@
 body{
     background-image: url('../images/sei.jpg');
+    height: 100%;
+    margin: 0;
+}
+html {
+    height: 100%;
+    margin: 0;
 }
 .right{
     text-align: right;
@@ -26,10 +32,10 @@ body{
 .footer {
     position: relative;
     bottom:0;
-    padding: 1rem;
+    padding: 2rem 0;
     background-color: #efefef;
     text-align: center;
-    margin-top: 2em;
+    margin-top: 50px;
     clear:both;
 }
 .container .jumbotron, .container-fluid .jumbotron{
@@ -51,8 +57,6 @@ body{
     border: 3px solid black;
     border-radius: 12px;
     padding: 2.5em;
-
-
 }
 .datiText{
     font-size: 25px;
@@ -65,4 +69,28 @@ body{
 }
 .margin-top-zero{
     margin-top:0px;
+}
+
+#radioDiv > label{
+    font-size:15px !important;
+}
+#bottoni{
+    padding:15px;
+    margin-left:15px !important;
+
+    background-color: whitesmoke;
+
+
+}
+#calendar{
+    margin-left:15px !important;
+    padding:15px;
+    background-color: whitesmoke;
+
+}
+#niente{
+    display: none;
+}
+.float_left{
+    float: right;
 }

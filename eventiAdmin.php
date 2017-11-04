@@ -34,69 +34,83 @@
                     data: 'title='+ title+'&start='+ start +'&end='+ end,
                     type: "POST",
                     dataType: "text",
-                    success: function(json) {
+                    success: function(json)
+                    {
 
                         if(json =="ok")
                         {
                             location.href = "modal.php?nome=" + nome + "&cognome=" + cognome + "&start=" + start +"&end=" + end + "&campo=" + selected;
                         }
-                                             //alert('Prenotazione effettuata correttamente');
+                        //alert('Prenotazione effettuata correttamente');
                         //fai(selectedVal); //TODO reindirizzamento a visualizzazione cal o smth simile
-                    },error: function(json) {
-
-                        if(json == "error"){
-
+                    },error: function(json)
+                    {
+                        if(json == "error")
+                        {
                             alert("errore");
                         }
                     }
                 });
+            });
+        });
+        function rimuovi()
+        {
+            $("#mess_iniz").remove();
+        }
+        function rimuoviCalendar()
+        {
+            $("#calendar").replaceWith("<div class=\"col-sm-8\"id=\"calendar\"></div>")
+        }
+        function fai(campo) {
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+            var varDelete = "deleteEvents" + campo + ".php"
+            var campoLocal = "events" + campo + ".php";
+            var calendar = $('#calendar').fullCalendar({
+                editable: true,
+                selectable: true,
+                header:
+                    {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek'
+                    },
+                lang: 'it',
+                defaultView: 'agendaWeek',
+                minTime: "07:00:00",
+                maxTime: "21:00:00",
+                events: campoLocal,
+                // Convert the allDay from string to boolean
+                eventRender: function (event, element, view) {
+                    if (event.allDay === 'true') {
+                        event.allDay = true;
+                    } else {
+                        event.allDay = false;
+                    }
+                }, eventClick: function (event) {                     //funzione per rimozione fino a riga 115
+                    var id = event.eventid;
+                    console.log(id);
+                    var decision = confirm("Stai rimuovendo l'evento di " + event.title + " delle " + event.startTime);
+                    if (decision) {
+                        $.ajax({
+                            type: "POST",
+                            url: varDelete,
+                            data: "id=" + event.eventid,
+                            success: function (json) {
+                                $('#calendar').fullCalendar('removeEvents', event.eventid);
+                                alert("Updated Successfully");
 
+                                window.location.href='eventiAdmin.php';//con questo fucking funziona dibbrutto
+                            }
+                        });
 
+                    }
+                }
             });
 
-        });
-    function rimuovi()
-    {
-        $("#mess_iniz").remove();
-
-    }
-    function rimuoviCalendar()
-    {
-        $("#calendar").replaceWith("<div class=\"col-sm-8\"id=\"calendar\"></div>")
-    }
-    function fai(campo){
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-        var campoLocal = "events" + campo + ".php";
-        var calendar = $('#calendar').fullCalendar({
-            editable: true,
-                selectable: true,
-            header:
-            {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek'
-            },
-            lang: 'it',
-            defaultView: 'agendaWeek',
-            minTime: "07:00:00",
-            maxTime: "21:00:00",
-            events: campoLocal,
-            // Convert the allDay from string to boolean
-            eventRender: function(event, element, view)
-            {
-                if (event.allDay === 'true')
-                {
-                    event.allDay = true;
-                } else {
-                    event.allDay = false;
-                    }
-            }
-        });
-
-    }
+        }
     </script>
     <script>
         $(document).ready(function(){
@@ -151,8 +165,8 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-8 col-lg-8 padding" id="calendar"></div>
-        <div class="col-sm-4 col-lg-4 padding">
+        <div class="col-sm-8 padding" id="calendar"></div>
+        <div class="col-sm-4 padding">
             <h4>Completamento registrazione</h4>
             <form class="form-horizontal">
                 <div class="form-group">

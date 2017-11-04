@@ -11,7 +11,15 @@ try {
 }
 
 // insert the records
-$sql = "INSERT INTO reservations1 (title, start, end) VALUES (:title, :start, :end )";
+$sql = "INSERT INTO reservations3 (title, start, end) VALUES (:title, :start, :end )";
 $q = $bdd->prepare($sql);
-$q->execute(array(':title'=>$title, ':start'=>$start, ':end'=>$end));
+$response =$q->execute(array(':title'=>$title, ':start'=>$start, ':end'=>$end));
+//echo "inserimento riuscito con ". $title. $start;
+
+if($response) {
+    echo "ok";
+}
+else{
+    echo "errore";
+}
 ?>

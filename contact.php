@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+                <form class="form-horizontal" action="email.php"method="post">
                     <fieldset>
                         <legend class="text-center header">Contact us</legend>
                         <div class= "form-group">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-1">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
+                                <input id="lname" name="surname" type="text" placeholder="Last Name" class="form-control">
                             </div>
                         </div>
 
